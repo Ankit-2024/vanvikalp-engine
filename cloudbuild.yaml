@@ -1,0 +1,15 @@
+steps:
+  # Download the model from your bucket into the build workspace
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ['cp', 'gs://vanvikalp_ai_assests/esg-eaas-model-001.gguf', '.']
+
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/vanvikalp-engine', '.']
+
+  # Push the baked image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/vanvikalp-engine']
+
+images:
+  - 'gcr.io/$PROJECT_ID/vanvikalp-engine'

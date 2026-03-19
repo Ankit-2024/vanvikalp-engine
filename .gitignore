@@ -1,0 +1,6 @@
+# Ignore the massive base model
+esg-eaas-model-001.gguf
+
+# Ignore Python caches
+__pycache__/
+*.pyc
