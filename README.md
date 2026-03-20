@@ -22,12 +22,35 @@ The engine is instructed to act as an elite ESG consultant. It accepts multi-con
 3. Waterlogging/Plumbing Strategy
 4. Cloud IT Infrastructure Strategy
 
-## 🔌 API Contract
 
-The engine exposes a single `POST` endpoint at `/generate`. It is secured via Google Cloud IAM Identity Tokens.
+## 🔌 API Contract & Sample Output
 
-**Request Payload:**
+To integrate the VanVikalp Engine into a frontend or external service, use the following specification.
+
+### Sample Request
+**Endpoint:** `POST /generate`  
+**Headers:** `Authorization: Bearer <ID_TOKEN>`
+
 ```json
 {
-    "prompt": "We are modernizing a heritage campus. The courtyard floods, the grid is overloaded, and we need to cool the old buildings without adding solar panels. Provide an ESG strategy."
+    "prompt": "We are modernizing the Calcutta University heritage campus. The courtyard floods, the grid is overloaded, and we need to cool the old buildings without adding solar panels. Provide an ESG strategy."
+}
+
+{
+    "heritage_hvac_strategy": {
+        "solution": "High-Performance Radiant Cooling System",
+        "estimated_impact": "Reduce energy consumption by 30%, improve indoor air quality, and preserve heritage building integrity"
+    },
+    "electrical_grid_strategy": {
+        "solution": "Off-Site Energy Procurement through a nearby data center's waste heat reuse program",
+        "estimated_impact": "Reduce peak demand on the grid by 25%, minimize infrastructure upgrades, and achieve cost savings"
+    },
+    "waterlogging_strategy": {
+        "solution": "Rainwater Harvesting with Grey Water Reuse System for irrigation and flushing toilets",
+        "estimated_impact": "Reduce stormwater runoff by 50%, conserve potable water, and create a self-sustaining ecosystem"
+    },
+    "cloud_infrastructure_strategy": {
+        "solution": "Migrate campus IT infrastructure to a cloud-based platform with energy-efficient data centers",
+        "estimated_impact": "Reduce on-site energy consumption by 40%, minimize e-waste generation, and enhance disaster recovery capabilities"
+    }
 }
